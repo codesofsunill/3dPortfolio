@@ -15,6 +15,9 @@ lerna-debug.log*
 # ===============================
 node_modules/
 
+# Ignore 3D models and images
+public/models/
+public/images/
 
 # ===============================
 # Build Outputs
