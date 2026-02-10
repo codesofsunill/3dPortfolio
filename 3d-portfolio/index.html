@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Mobile Optimization -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- SEO -->
+    <meta name="description" content="Sunil Behera - Web Developer specializing in modern, immersive web experiences.">
+    <meta name="author" content="Sunil Behera">
+
+    <title>Developer SUNIL'S Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Three.js Import -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.152.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.152.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Three Canvas -->
+    <canvas id="canvas-container"></canvas>
+    
+    <!-- UI Layer -->
+    <div id="ui-layer">
+
+        <!-- START SCREEN -->
+        <div id="screen-start" class="overlay active">
+            <h1 class="glitch">DRIVE & EXPLORE MY PORTFOLIO</h1>
+            <button id="btn-ignition" type="button" class="hidden">START DRIVE</button>
+        </div>
+
+        <!-- INFO SCREEN -->
+        <div id="screen-info" class="overlay hidden">
+            <div class="content-card">
+                <div id="hero-photo" class="hero-photo hidden">
+                <img src="/images/sunil.jpg" alt="Sunil">
+        </div>
+
+                <h2 id="info-title">PROJECT NAME</h2>
+                <p id="info-desc">Description goes here...</p>
+
+                <div class="btn-group">
+                    <button id="btn-continue" type="button" class="btn-main">
+                        CONTINUE DRIVE
+                    </button>
+
+                    <a href="#" id="info-link" target="_blank" class="btn-sub">
+                        LIVE VIEW
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT MODAL -->
+        <div id="contactModal" class="modal">
+            <div class="modal-card">
+
+                <span id="closeContact" class="close-modal">&times;</span>
+
+                <h2>Contact Me</h2>
+
+                <input id="contact-name" placeholder="Your Name"/>
+                <input id="contact-email" placeholder="Your Email"/>
+                <textarea id="contact-message" placeholder="Your Message"></textarea>
+
+                <!-- ✅ FIXED BUTTON -->
+                <button onclick="sendToWhatsApp()">Send on WhatsApp 🚀</button>
+
+            </div>
+        </div>
+
+        <!-- HUD -->
+        <div id="hud">
+            <div class="hud-box">SPD: <span id="val-speed">0</span> MPH</div>
+            <div class="hud-box" id="val-section">INITIALIZING...</div>
+        </div>
+
+    </div>
+
+
+<!-- ✅ WHATSAPP SCRIPT (ULTRA STABLE) -->
+<script>
+
+function sendToWhatsApp(){
+
+const name = document.getElementById("contact-name").value.trim();
+const email = document.getElementById("contact-email").value.trim();
+const message = document.getElementById("contact-message").value.trim();
+
+if(!name || !email || !message){
+    alert("Please fill all fields 🙂");
+    return;
+}
+
+const text =
+`🚀 New Portfolio Contact
+
+Name: ${name}
+Email: ${email}
+Message: ${message}`;
+
+
+// ⚠️ NUMBER FORMAT → NO + NO SPACE
+const phoneNumber = "919040742899";
+
+const whatsappURL = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(text);
+
+// 🔥 BEST METHOD (popup block nahi hoga)
+window.location.href = whatsappURL;
+
+
+// Close modal
+document.getElementById("contactModal").style.display="none";
+
+}
+
+</script>
+
+
+<!-- MAIN SCRIPT -->
+<script type="module" src="src/main.js"></script>
+
+</body>
+</html>

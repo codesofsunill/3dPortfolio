@@ -1,0 +1,335 @@
+/* --- CORE SETUP --- */
+body, html { 
+    margin: 0; 
+    padding: 0; 
+    overflow: hidden; 
+    background: #000202; 
+    color: #fff; 
+    font-family: 'Orbitron', 'Segoe UI', sans-serif;
+    overscroll-behavior: none; /* Mobile bounce prevent karne ke liye */
+}
+
+#canvas-container { position: fixed; top: 0; left: 0; z-index: 1; }
+
+/* --- 1. LOADING SCREEN --- */
+#loading-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader-content { text-align: center; width: 300px; }
+
+.progress-container {
+    width: 100%;
+    height: 4px;
+    background: rgba(0, 255, 255, 0.1);
+    margin: 20px 0;
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+#loading-bar {
+    width: 0%;
+    height: 100%;
+    background: #00ffff;
+    box-shadow: 0 0 15px #00ffff;
+    transition: width 0.3s ease;
+}
+
+/* --- 2. OVERLAYS (CENTERED FOR MOBILE) --- */
+.overlay {
+    position: fixed; 
+    inset: 0; 
+    z-index: 100;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; /* Vertical alignment fixed */
+    text-align: center;      /* Text centering fixed */
+    background: radial-gradient(circle, transparent 10%, rgba(0,0,0,0.85) 100%);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 20px;           /* Mobile safe area */
+    box-sizing: border-box;
+}
+
+.hidden { opacity: 0; pointer-events: none; transform: scale(1.05); filter: blur(10px); }
+
+/* --- 3. DYNAMIC CONTENT CARD --- */
+.content-card {
+    background: rgba(0, 15, 15, 0.85);
+    border: 1px solid rgba(0, 255, 255, 0.4); 
+    padding: 40px;
+    width: 100%;
+    max-width: 450px; 
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 50px rgba(0,0,0,1), inset 0 0 20px rgba(0,255,255,0.05);
+    position: relative;
+    clip-path: polygon(0 0, 90% 0, 100% 10%, 100% 100%, 10% 100%, 0 90%);
+}
+
+.content-card h2 {
+    font-size: clamp(1.5rem, 6vw, 2.2rem); /* Auto-fit size */
+    color: #fff;
+    margin-bottom: 15px;
+    white-space: pre;
+    word-spacing: 0.4rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.card-border {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    border-top: 2px solid #00ffff;
+    opacity: 0.5;
+}
+
+/* --- 4. HUD SYSTEM (RESPONSIVE) --- */
+#hud {
+    position: fixed; 
+    top: 20px; 
+    width: 100%; 
+    display: flex;
+    justify-content: space-between; 
+    padding: 0 30px;
+    box-sizing: border-box;
+    pointer-events: none;
+    z-index: 50;
+}
+
+.hud-item {
+    background: rgba(0, 10, 10, 0.7);
+    border-left: 3px solid #00ffff;
+    padding: 8px 15px;
+    backdrop-filter: blur(5px);
+}
+
+.hud-item .label { font-size: 0.6rem; color: #00ffff; display: block; letter-spacing: 1px; }
+.hud-item .value { font-size: 1.1rem; font-weight: bold; font-family: monospace; }
+
+/* --- 5. MOBILE CONTROLS --- */
+#mobile-controls {
+    position: fixed;
+    bottom: 40px;
+    width: 100%;
+    display: none; 
+    justify-content: space-between;
+    padding: 0 40px;
+    box-sizing: border-box;
+    z-index: 200;
+}
+
+.touch-btn {
+    width: 70px; height: 70px;
+    background: rgba(0, 255, 255, 0.05);
+    border: 2px solid #00ffff;
+    color: #00ffff;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    backdrop-filter: blur(5px);
+    user-select: none;
+    touch-action: manipulation;
+}
+
+/* --- 6. SOCIAL SIDEBAR --- */
+#social-sidebar {
+    position: fixed;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 150;
+}
+
+@media (max-width: 768px) {
+    #social-sidebar { display: none; } /* Mobile par saaf dikhne ke liye hide */
+}
+
+/* --- GLITCH TITLE UPGRADE --- */
+/* --- SUNIL'S SPECIAL ANIMATIONS --- */
+
+/* 1. Heading (DRIVE & EXPLORE) ko mast banane ke liye */
+.glitch {
+    display: inline-block;
+    color: #fff !important;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: 0 0 10px #00ffff;
+    animation: sunilBreathe 3s ease-in-out infinite !important;
+}
+
+@keyframes sunilBreathe {
+    0%, 100% { 
+        transform: scale(1); 
+        text-shadow: 0 0 10px #00ffff; 
+        opacity: 0.8; 
+    }
+    50% { 
+        transform: scale(1.05); 
+        text-shadow: 0 0 30px #00ffff, 0 0 50px #00ffff; 
+        opacity: 1; 
+    }
+}
+
+/* 2. START DRIVE Button ko animated banane ke liye */
+#btn-ignition {
+    position: relative;
+    border: 2px solid #00ffff !important;
+    color: #00ffff !important;
+    background: transparent !important;
+    transition: all 0.4s ease-in-out !important;
+    overflow: hidden;
+    animation: sunilSlideUp 1s ease-out;
+    cursor: pointer;
+}
+
+#btn-ignition:hover {
+    background: #00ffff !important;
+    color: #000 !important;
+    box-shadow: 0 0 40px #00ffff, 0 0 80px rgba(0, 255, 255, 0.4) !important;
+    transform: translateY(-5px) scale(1.05) !important;
+}
+
+/* Button pehli baar load hote waqt niche se upar aayega */
+@keyframes sunilSlideUp {
+    from { 
+        opacity: 0; 
+        transform: translateY(40px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Screen responsive rahe uske liye */
+@media (max-width: 768px) {
+    .glitch {
+        font-size: 2rem !important;
+        letter-spacing: 3px;
+    }
+}
+
+
+/* --- BUTTONS --- */
+.btn-neon {
+    background: transparent;
+    border: 1px solid #00ffff;
+    color: #00ffff;
+    padding: 15px 45px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 3px;
+    transition: 0.3s;
+    font-size: 0.9rem;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+.btn-neon:hover {
+    background: #00ffff;
+    color: #000;
+    box-shadow: 0 0 30px #00ffff;
+}
+
+/* --- CONTACT MODAL --- */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.75);
+    backdrop-filter: blur(8px);
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+}
+
+.modal-card {
+    position:relative;
+    width: 90%;
+    max-width: 360px;
+    background: rgba(0,20,20,0.95);
+    border: 1px solid #00ffff;
+    padding: 25px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal-card input, .modal-card textarea {
+    background: #011a1a;
+    border: 1px solid rgba(0,255,255,0.3);
+    padding: 12px;
+    color: #fff;
+    border-radius: 8px;
+    outline: none;
+}
+
+.close-modal{
+    position:absolute;
+    right:18px;
+    top:12px;
+
+    font-size:28px;
+    cursor:pointer;
+    color:#00ffff;
+}
+
+
+/* --- UTILITIES --- */
+@media (max-width: 1024px) {
+    #mobile-controls { display: flex; }
+    #hud { padding: 0 20px; top: 15px; }
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-thumb { background: #00ffff; }
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+    justify-content: center;
+}
+
+.btn-main, .btn-sub {
+    padding: 12px 20px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    font-weight: bold;
+    flex: 1;
+}
+
+.btn-main { background: #00ffff; color: #000; border: none; }
+.btn-sub { border: 1px solid #00ffff; color: #00ffff; }
+
+.hero-photo {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+}
+
+.hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hidden {
+    display: none;
+}
