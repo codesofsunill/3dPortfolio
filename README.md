@@ -22,7 +22,8 @@ A high-performance, interactive 3D portfolio showcasing my skills and projects. 
 ## 📦 Installation & Setup
 To run this project locally, follow these steps:
  
-`git clone https://github.com/codesofsunill/3d-Car-Portfolio.git
+`bash
+git clone https://github.com/codesofsunill/3d-Car-Portfolio.git
 `
 
 2. Navigate to the project folder
