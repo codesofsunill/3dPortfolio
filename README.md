@@ -4,8 +4,9 @@ A high-performance, interactive 3D portfolio showcasing my skills and projects. 
 
 
 
-## 🚀 Live Demo
-**Check it out here:** [https://sunil-3dportfolio.vercel.app](https://sunil-3dportfolio.vercel.app)
+##       3d🏎️ portfolio
+
+ [🚀 Live Demo](https://sunil-3dportfolio.vercel.app)
 
 ## ✨ Key Features
 * **Interactive 3D Experience:** Smooth 3D model navigation using Three.js.
@@ -20,25 +21,29 @@ A high-performance, interactive 3D portfolio showcasing my skills and projects. 
 * **Deployment:** Vercel
 
 ## 📦 Installation & Setup
-To run this project locally, follow these steps:
+1. To run this project locally, follow these steps:
  
-```bash
+ ```bash
 git clone https://github.com/codesofsunill/3d-Car-Portfolio.git
 ```
 
 2. Navigate to the project folder
 
+```bash
     cd 3d-portfolio
-    
+ ```   
 
 3. Install Dependencies
-    
-    npm install
 
+```bash    
+    npm install
+```
 
 4. Start the Devlopment Server 
-    
+ ```bash   
     npm run dev
-
+```
+# CONTACT
+  Contact Me on [Instagram](https://instagram.com/nill_02s)
 
     Made with ❤️ by Sunil
