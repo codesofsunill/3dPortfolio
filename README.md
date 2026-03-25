@@ -6,7 +6,7 @@ A high-performance, interactive 3D portfolio showcasing my skills and projects. 
 
 ##       3d🏎️ portfolio
 
- [🚀 Live Demo](https://sunil-3dportfolio.vercel.app)
+ [🚀 Live Demo](https://sunil3d-portfolio.vercel.app)
 
 ## ✨ Key Features
 * **Interactive 3D Experience:** Smooth 3D model navigation using Three.js.
