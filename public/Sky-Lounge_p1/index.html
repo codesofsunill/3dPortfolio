@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Sky Lounge — Balangir</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- Topbar -->
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-logo">
+        <span class="logo-dot"></span>
+        <span class="logo-text" id="nav-brand">Sky Lounge</span>
+      </div>
+      <a class="topbar-call" id="nav-call" href="tel:+919348977577">
+        <span class="call-dot"></span>
+        Call to Order
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow" id="hero-eyebrow">Rooftop Dining · Balangir, Odisha</p>
+      <h1 class="hero-title" id="hero-title">Sky<br><em>Lounge</em></h1>
+      <p class="hero-desc" id="hero-desc">Elevated flavours & open skies, seven floors above the city.</p>
+      <div class="hero-info">
+        <span id="hero-hours">🕗 10am – 11pm</span>
+        <span class="dot-sep">·</span>
+        <span id="hero-city">📍 Bikram Chowk</span>
+        <span class="dot-sep">·</span>
+        <span>🍽 Dine-in & Takeaway</span>
+      </div>
+      <a class="hero-btn" id="hero-btn" href="tel:+919348977577">Reserve a Table</a>
+    </div>
+    <div class="hero-card">
+      <p class="hcard-label">Today's Special</p>
+      <p class="hcard-dish" id="special-dish">Dark Choc Lava</p>
+      <p class="hcard-desc" id="special-desc">Molten centre · Vanilla bean ice cream</p>
+      <p class="hcard-price" id="special-price">₹399</p>
+    </div>
+  </header>
+
+  <!-- Menu -->
+  <main class="main">
+
+    <div class="menu-header">
+      <div>
+        <h2 class="menu-title">Our Menu</h2>
+        <p class="menu-sub">Everything made fresh, every day</p>
+      </div>
+    </div>
+
+    <!-- Category pills -->
+    <div class="cat-bar" id="cats"></div>
+
+    <!-- No results -->
+    <div id="no-results" class="no-results" style="display:none;">
+      <p>No dishes in this category yet.</p>
+    </div>
+
+    <!-- Grid -->
+    <div class="menu-grid" id="menu-grid"></div>
+
+    <!-- Call CTA -->
+    <div class="call-cta">
+      <div class="call-cta-text">
+        <p class="call-cta-title">Like what you see?</p>
+        <p class="call-cta-sub">Call us to place your order or reserve a table</p>
+      </div>
+      <a class="call-cta-btn" id="cta-btn" href="tel:+919348977577">
+        📞 <span id="cta-phone">093489 77577</span>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Info Strip -->
+  <section class="info-strip">
+    <div class="info-inner">
+      <div class="info-item">
+        <span class="info-icon">📍</span>
+        <div>
+          <p class="info-label">Find Us</p>
+          <p class="info-val" id="info-address">Bikram Heights, Bikram Chowk<br>Balangir, Odisha 767001</p>
+        </div>
+      </div>
+      <div class="info-divider"></div>
+      <div class="info-item">
+        <span class="info-icon">📞</span>
+        <div>
+          <p class="info-label">Call Us</p>
+          <p class="info-val"><a id="info-phone" href="tel:+919348977577">093489 77577</a></p>
+        </div>
+      </div>
+      <div class="info-divider"></div>
+      <div class="info-item">
+        <span class="info-icon">🕗</span>
+        <div>
+          <p class="info-label">Hours</p>
+          <p class="info-val" id="info-hours">Every day · 10am – 11pm</p>
+        </div>
+      </div>
+      <div class="info-divider"></div>
+      <div class="info-item">
+        <span class="info-icon">🏙</span>
+        <div>
+          <p class="info-label">Experience</p>
+          <p class="info-val" id="info-experience">Rooftop · 7th Floor · Open Air</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map -->
+  <div class="map-wrap">
+    <iframe id="map-iframe" title="Sky Lounge Location"
+      src="https://maps.google.com/maps?q=20.701273768724807,83.4899546423276&z=18&output=embed" width="100%"
+      height="300" style="border:0;" allowfullscreen="" loading="lazy">
+    </iframe>
+
+    class="directions-btn"
+    id="directions-btn"
+    href="https://maps.google.com/maps?q=20.701273768724807,83.4899546423276"
+    target="_blank">
+    📍 Get Directions →
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p class="footer-name" id="footer-name">Sky Lounge</p>
+    <p id="footer-address">Bikram Heights, Bikram Chowk, Balangir, Odisha 767001</p>
+    <p><a id="footer-phone" href="tel:+919348977577">093489 77577</a></p>
+    <p id="footer-social" style="display:none;"></p> 
+    <p class="footer-copy">© 2025 <span id="footer-brand">Sky Lounge</span> · All rights reserved</p>
+  </footer>
+  
+  <!-- Config pehle, phir script -->
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
